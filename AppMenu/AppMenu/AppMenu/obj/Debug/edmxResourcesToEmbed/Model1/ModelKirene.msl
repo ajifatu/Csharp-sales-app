@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BdKireneModelStoreContainer" CdmEntityContainer="BdKireneEntities">
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="BdKireneModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="idCategorie" ColumnName="idCategorie" />
+          <ScalarProperty Name="CodeCategorie" ColumnName="CodeCategorie" />
+          <ScalarProperty Name="libelleCategori" ColumnName="libelleCategori" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produit">
+      <EntityTypeMapping TypeName="BdKireneModel.Produit">
+        <MappingFragment StoreEntitySet="Produit">
+          <ScalarProperty Name="CodeCategorie" ColumnName="CodeCategorie" />
+          <ScalarProperty Name="QteCri" ColumnName="QteCri" />
+          <ScalarProperty Name="QteMin" ColumnName="QteMin" />
+          <ScalarProperty Name="PU" ColumnName="PU" />
+          <ScalarProperty Name="DesignationProduit" ColumnName="DesignationProduit" />
+          <ScalarProperty Name="CodeProduit" ColumnName="CodeProduit" />
+          <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VListeProduitCategorie">
+      <EntityTypeMapping TypeName="BdKireneModel.VListeProduitCategorie">
+        <MappingFragment StoreEntitySet="VListeProduitCategorie">
+          <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+          <ScalarProperty Name="QteCri" ColumnName="QteCri" />
+          <ScalarProperty Name="QteMin" ColumnName="QteMin" />
+          <ScalarProperty Name="PU" ColumnName="PU" />
+          <ScalarProperty Name="DesignationProduit" ColumnName="DesignationProduit" />
+          <ScalarProperty Name="CodeProduit" ColumnName="CodeProduit" />
+          <ScalarProperty Name="libelleCategori" ColumnName="libelleCategori" />
+          <ScalarProperty Name="CodeCategorie" ColumnName="CodeCategorie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profil">
+      <EntityTypeMapping TypeName="BdKireneModel.Profil">
+        <MappingFragment StoreEntitySet="Profil">
+          <ScalarProperty Name="LibelleProfil" ColumnName="LibelleProfil" />
+          <ScalarProperty Name="CodeProfil" ColumnName="CodeProfil" />
+          <ScalarProperty Name="idProfil" ColumnName="idProfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateur">
+      <EntityTypeMapping TypeName="BdKireneModel.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateur">
+          <ScalarProperty Name="CodeProfil" ColumnName="CodeProfil" />
+          <ScalarProperty Name="MotDePasse" ColumnName="MotDePasse" />
+          <ScalarProperty Name="IdentifiantUt" ColumnName="IdentifiantUt" />
+          <ScalarProperty Name="idUt" ColumnName="idUt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

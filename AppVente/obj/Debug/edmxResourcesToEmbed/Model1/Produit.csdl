@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdVenteModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="idProduit" />
+    </Key>
+    <Property Name="idProduit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" />
+    <Property Name="CodeProduit" Type="Int32" />
+    <Property Name="PrixProduit" Type="Int32" />
+    <Property Name="QteMin" Type="Int32" />
+    <Property Name="QteCritique" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="bdVenteEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Produit" EntityType="Self.Produit" />
+  </EntityContainer>
+</Schema>

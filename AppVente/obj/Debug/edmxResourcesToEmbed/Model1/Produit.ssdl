@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdVenteModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="idProduit" />
+    </Key>
+    <Property Name="idProduit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designation" Type="nchar" MaxLength="150" />
+    <Property Name="Description" Type="nchar" MaxLength="1000" />
+    <Property Name="CodeProduit" Type="int" />
+    <Property Name="PrixProduit" Type="int" />
+    <Property Name="QteMin" Type="int" />
+    <Property Name="QteCritique" Type="int" />
+  </EntityType>
+  <EntityContainer Name="bdVenteModel1StoreContainer">
+    <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

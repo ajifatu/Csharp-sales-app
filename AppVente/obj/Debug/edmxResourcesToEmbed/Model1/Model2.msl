@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bdVenteModel2StoreContainer" CdmEntityContainer="bdVenteEntities2">
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="bdVenteModel2.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="idCategorie" ColumnName="idCategorie" />
+          <ScalarProperty Name="codeCategorie" ColumnName="codeCategorie" />
+          <ScalarProperty Name="libelleCategorie" ColumnName="libelleCategorie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produits">
+      <EntityTypeMapping TypeName="bdVenteModel2.Produits">
+        <MappingFragment StoreEntitySet="Produits">
+          <ScalarProperty Name="idProduit" ColumnName="idProduit" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CodeProduit" ColumnName="CodeProduit" />
+          <ScalarProperty Name="PrixProduit" ColumnName="PrixProduit" />
+          <ScalarProperty Name="QteMin" ColumnName="QteMin" />
+          <ScalarProperty Name="QteCritique" ColumnName="QteCritique" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

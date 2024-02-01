@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BdKireneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="idCategorie" />
+    </Key>
+    <Property Name="idCategorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeCategorie" Type="nvarchar" MaxLength="4" />
+    <Property Name="libelleCategori" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="IdProduit" />
+    </Key>
+    <Property Name="IdProduit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeProduit" Type="nvarchar" MaxLength="5" />
+    <Property Name="DesignationProduit" Type="nvarchar" MaxLength="50" />
+    <Property Name="PU" Type="float" />
+    <Property Name="QteMin" Type="int" />
+    <Property Name="QteCri" Type="int" />
+    <Property Name="CodeCategorie" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Profil">
+    <Key>
+      <PropertyRef Name="idProfil" />
+    </Key>
+    <Property Name="idProfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeProfil" Type="nvarchar" MaxLength="30" />
+    <Property Name="LibelleProfil" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="idUt" />
+    </Key>
+    <Property Name="idUt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdentifiantUt" Type="nvarchar" MaxLength="50" />
+    <Property Name="MotDePasse" Type="nvarchar" MaxLength="250" />
+    <Property Name="CodeProfil" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'BdKirene.dbo.VListeProduitCategorie' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+  <EntityType Name="VListeProduitCategorie">
+    <Key>
+      <PropertyRef Name="IdProduit" />
+    </Key>
+    <Property Name="CodeCategorie" Type="nvarchar" MaxLength="4" />
+    <Property Name="libelleCategori" Type="nvarchar" MaxLength="30" />
+    <Property Name="CodeProduit" Type="nvarchar" MaxLength="5" />
+    <Property Name="DesignationProduit" Type="nvarchar" MaxLength="50" />
+    <Property Name="PU" Type="float" />
+    <Property Name="QteMin" Type="int" />
+    <Property Name="QteCri" Type="int" />
+    <Property Name="IdProduit" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BdKireneModelStoreContainer">
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profil" EntityType="Self.Profil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VListeProduitCategorie" EntityType="Self.VListeProduitCategorie" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VListeProduitCategorie].[CodeCategorie] AS [CodeCategorie], 
+    [VListeProduitCategorie].[libelleCategori] AS [libelleCategori], 
+    [VListeProduitCategorie].[CodeProduit] AS [CodeProduit], 
+    [VListeProduitCategorie].[DesignationProduit] AS [DesignationProduit], 
+    [VListeProduitCategorie].[PU] AS [PU], 
+    [VListeProduitCategorie].[QteMin] AS [QteMin], 
+    [VListeProduitCategorie].[QteCri] AS [QteCri], 
+    [VListeProduitCategorie].[IdProduit] AS [IdProduit]
+    FROM [dbo].[VListeProduitCategorie] AS [VListeProduitCategorie]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

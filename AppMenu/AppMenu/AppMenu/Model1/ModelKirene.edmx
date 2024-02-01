@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BdKireneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="idCategorie" />
+          </Key>
+          <Property Name="idCategorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodeCategorie" Type="nvarchar" MaxLength="4" />
+          <Property Name="libelleCategori" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Produit">
+          <Key>
+            <PropertyRef Name="IdProduit" />
+          </Key>
+          <Property Name="IdProduit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodeProduit" Type="nvarchar" MaxLength="5" />
+          <Property Name="DesignationProduit" Type="nvarchar" MaxLength="50" />
+          <Property Name="PU" Type="float" />
+          <Property Name="QteMin" Type="int" />
+          <Property Name="QteCri" Type="int" />
+          <Property Name="CodeCategorie" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Profil">
+          <Key>
+            <PropertyRef Name="idProfil" />
+          </Key>
+          <Property Name="idProfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodeProfil" Type="nvarchar" MaxLength="30" />
+          <Property Name="LibelleProfil" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="idUt" />
+          </Key>
+          <Property Name="idUt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdentifiantUt" Type="nvarchar" MaxLength="50" />
+          <Property Name="MotDePasse" Type="nvarchar" MaxLength="250" />
+          <Property Name="CodeProfil" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'BdKirene.dbo.VListeProduitCategorie' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="VListeProduitCategorie">
+          <Key>
+            <PropertyRef Name="IdProduit" />
+          </Key>
+          <Property Name="CodeCategorie" Type="nvarchar" MaxLength="4" />
+          <Property Name="libelleCategori" Type="nvarchar" MaxLength="30" />
+          <Property Name="CodeProduit" Type="nvarchar" MaxLength="5" />
+          <Property Name="DesignationProduit" Type="nvarchar" MaxLength="50" />
+          <Property Name="PU" Type="float" />
+          <Property Name="QteMin" Type="int" />
+          <Property Name="QteCri" Type="int" />
+          <Property Name="IdProduit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BdKireneModelStoreContainer">
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profil" EntityType="Self.Profil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VListeProduitCategorie" EntityType="Self.VListeProduitCategorie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VListeProduitCategorie].[CodeCategorie] AS [CodeCategorie], 
+    [VListeProduitCategorie].[libelleCategori] AS [libelleCategori], 
+    [VListeProduitCategorie].[CodeProduit] AS [CodeProduit], 
+    [VListeProduitCategorie].[DesignationProduit] AS [DesignationProduit], 
+    [VListeProduitCategorie].[PU] AS [PU], 
+    [VListeProduitCategorie].[QteMin] AS [QteMin], 
+    [VListeProduitCategorie].[QteCri] AS [QteCri], 
+    [VListeProduitCategorie].[IdProduit] AS [IdProduit]
+    FROM [dbo].[VListeProduitCategorie] AS [VListeProduitCategorie]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BdKireneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="idCategorie" />
+          </Key>
+          <Property Name="idCategorie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodeCategorie" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="libelleCategori" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="BdKireneEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+          <EntitySet Name="Produit" EntityType="BdKireneModel.Produit" />
+          <EntitySet Name="VListeProduitCategorie" EntityType="BdKireneModel.VListeProduitCategorie" />
+          <EntitySet Name="Profil" EntityType="BdKireneModel.Profil" />
+          <EntitySet Name="Utilisateur" EntityType="BdKireneModel.Utilisateur" />
+        </EntityContainer>
+        <EntityType Name="Produit">
+          <Key>
+            <PropertyRef Name="IdProduit" />
+          </Key>
+          <Property Name="IdProduit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodeProduit" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="DesignationProduit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PU" Type="Double" />
+          <Property Name="QteMin" Type="Int32" />
+          <Property Name="QteCri" Type="Int32" />
+          <Property Name="CodeCategorie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VListeProduitCategorie">
+          <Key>
+            <PropertyRef Name="IdProduit" />
+          </Key>
+          <Property Name="CodeCategorie" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="libelleCategori" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CodeProduit" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="DesignationProduit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PU" Type="Double" />
+          <Property Name="QteMin" Type="Int32" />
+          <Property Name="QteCri" Type="Int32" />
+          <Property Name="IdProduit" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Profil">
+          <Key>
+            <PropertyRef Name="idProfil" />
+          </Key>
+          <Property Name="idProfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodeProfil" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LibelleProfil" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="idUt" />
+          </Key>
+          <Property Name="idUt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdentifiantUt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MotDePasse" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CodeProfil" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BdKireneModelStoreContainer" CdmEntityContainer="BdKireneEntities">
+          <EntitySetMapping Name="Categorie">
+            <EntityTypeMapping TypeName="BdKireneModel.Categorie">
+              <MappingFragment StoreEntitySet="Categorie">
+                <ScalarProperty Name="idCategorie" ColumnName="idCategorie" />
+                <ScalarProperty Name="CodeCategorie" ColumnName="CodeCategorie" />
+                <ScalarProperty Name="libelleCategori" ColumnName="libelleCategori" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produit">
+            <EntityTypeMapping TypeName="BdKireneModel.Produit">
+              <MappingFragment StoreEntitySet="Produit">
+                <ScalarProperty Name="CodeCategorie" ColumnName="CodeCategorie" />
+                <ScalarProperty Name="QteCri" ColumnName="QteCri" />
+                <ScalarProperty Name="QteMin" ColumnName="QteMin" />
+                <ScalarProperty Name="PU" ColumnName="PU" />
+                <ScalarProperty Name="DesignationProduit" ColumnName="DesignationProduit" />
+                <ScalarProperty Name="CodeProduit" ColumnName="CodeProduit" />
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VListeProduitCategorie">
+            <EntityTypeMapping TypeName="BdKireneModel.VListeProduitCategorie">
+              <MappingFragment StoreEntitySet="VListeProduitCategorie">
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+                <ScalarProperty Name="QteCri" ColumnName="QteCri" />
+                <ScalarProperty Name="QteMin" ColumnName="QteMin" />
+                <ScalarProperty Name="PU" ColumnName="PU" />
+                <ScalarProperty Name="DesignationProduit" ColumnName="DesignationProduit" />
+                <ScalarProperty Name="CodeProduit" ColumnName="CodeProduit" />
+                <ScalarProperty Name="libelleCategori" ColumnName="libelleCategori" />
+                <ScalarProperty Name="CodeCategorie" ColumnName="CodeCategorie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profil">
+            <EntityTypeMapping TypeName="BdKireneModel.Profil">
+              <MappingFragment StoreEntitySet="Profil">
+                <ScalarProperty Name="LibelleProfil" ColumnName="LibelleProfil" />
+                <ScalarProperty Name="CodeProfil" ColumnName="CodeProfil" />
+                <ScalarProperty Name="idProfil" ColumnName="idProfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateur">
+            <EntityTypeMapping TypeName="BdKireneModel.Utilisateur">
+              <MappingFragment StoreEntitySet="Utilisateur">
+                <ScalarProperty Name="CodeProfil" ColumnName="CodeProfil" />
+                <ScalarProperty Name="MotDePasse" ColumnName="MotDePasse" />
+                <ScalarProperty Name="IdentifiantUt" ColumnName="IdentifiantUt" />
+                <ScalarProperty Name="idUt" ColumnName="idUt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdVenteModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="idCategorie" />
+    </Key>
+    <Property Name="idCategorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codeCategorie" Type="nchar" MaxLength="5" />
+    <Property Name="libelleCategorie" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Produits">
+    <Key>
+      <PropertyRef Name="idProduit" />
+    </Key>
+    <Property Name="idProduit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designation" Type="nchar" MaxLength="100" />
+    <Property Name="Description" Type="nchar" MaxLength="1000" />
+    <Property Name="CodeProduit" Type="nchar" MaxLength="10" />
+    <Property Name="PrixProduit" Type="nchar" MaxLength="10" />
+    <Property Name="QteMin" Type="nchar" MaxLength="10" />
+    <Property Name="QteCritique" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityContainer Name="bdVenteModel2StoreContainer">
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Produits" EntityType="Self.Produits" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bdVenteModelStoreContainer" CdmEntityContainer="bdVenteEntities2">
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="bdVenteModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="IdCategorie" ColumnName="IdCategorie" />
+          <ScalarProperty Name="CodeCategorie" ColumnName="CodeCategorie" />
+          <ScalarProperty Name="LibelleCategorie" ColumnName="LibelleCategorie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produit">
+      <EntityTypeMapping TypeName="bdVenteModel.Produit">
+        <MappingFragment StoreEntitySet="Produit">
+          <ScalarProperty Name="DescriptionProduit" ColumnName="DescriptionProduit" />
+          <ScalarProperty Name="CodeCategorie" ColumnName="CodeCategorie" />
+          <ScalarProperty Name="QteCri" ColumnName="QteCri" />
+          <ScalarProperty Name="QteMin" ColumnName="QteMin" />
+          <ScalarProperty Name="PU" ColumnName="PU" />
+          <ScalarProperty Name="DesignationProduit" ColumnName="DesignationProduit" />
+          <ScalarProperty Name="CodeProduit" ColumnName="CodeProduit" />
+          <ScalarProperty Name="idProduit" ColumnName="idProduit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profil">
+      <EntityTypeMapping TypeName="bdVenteModel.Profil">
+        <MappingFragment StoreEntitySet="Profil">
+          <ScalarProperty Name="LibelleProfil" ColumnName="LibelleProfil" />
+          <ScalarProperty Name="CodeProfil" ColumnName="CodeProfil" />
+          <ScalarProperty Name="idProfil" ColumnName="idProfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateur">
+      <EntityTypeMapping TypeName="bdVenteModel.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateur">
+          <ScalarProperty Name="MotDepasse" ColumnName="MotDepasse" />
+          <ScalarProperty Name="CodeProfil" ColumnName="CodeProfil" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />
+          <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BdKireneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="idCategorie" />
+    </Key>
+    <Property Name="idCategorie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeCategorie" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="libelleCategori" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="BdKireneEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+    <EntitySet Name="Produit" EntityType="BdKireneModel.Produit" />
+    <EntitySet Name="VListeProduitCategorie" EntityType="BdKireneModel.VListeProduitCategorie" />
+    <EntitySet Name="Profil" EntityType="BdKireneModel.Profil" />
+    <EntitySet Name="Utilisateur" EntityType="BdKireneModel.Utilisateur" />
+  </EntityContainer>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="IdProduit" />
+    </Key>
+    <Property Name="IdProduit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeProduit" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationProduit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PU" Type="Double" />
+    <Property Name="QteMin" Type="Int32" />
+    <Property Name="QteCri" Type="Int32" />
+    <Property Name="CodeCategorie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VListeProduitCategorie">
+    <Key>
+      <PropertyRef Name="IdProduit" />
+    </Key>
+    <Property Name="CodeCategorie" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="libelleCategori" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CodeProduit" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationProduit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PU" Type="Double" />
+    <Property Name="QteMin" Type="Int32" />
+    <Property Name="QteCri" Type="Int32" />
+    <Property Name="IdProduit" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Profil">
+    <Key>
+      <PropertyRef Name="idProfil" />
+    </Key>
+    <Property Name="idProfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeProfil" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LibelleProfil" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="idUt" />
+    </Key>
+    <Property Name="idUt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdentifiantUt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MotDePasse" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CodeProfil" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdVenteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="IdCategorie" />
+    </Key>
+    <Property Name="IdCategorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeCategorie" Type="nvarchar" MaxLength="5" />
+    <Property Name="LibelleCategorie" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="idProduit" />
+    </Key>
+    <Property Name="idProduit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeProduit" Type="nvarchar" MaxLength="5" />
+    <Property Name="DesignationProduit" Type="nvarchar" MaxLength="200" />
+    <Property Name="PU" Type="float" />
+    <Property Name="QteMin" Type="int" />
+    <Property Name="QteCri" Type="int" />
+    <Property Name="CodeCategorie" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="DescriptionProduit" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Profil">
+    <Key>
+      <PropertyRef Name="idProfil" />
+    </Key>
+    <Property Name="idProfil" Type="int" Nullable="false" />
+    <Property Name="CodeProfil" Type="nvarchar" MaxLength="10" />
+    <Property Name="LibelleProfil" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="idUtilisateur" />
+    </Key>
+    <Property Name="idUtilisateur" Type="int" Nullable="false" />
+    <Property Name="Identifiant" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="80" />
+    <Property Name="CodeProfil" Type="nvarchar" MaxLength="10" />
+    <Property Name="MotDepasse" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityContainer Name="bdVenteModelStoreContainer">
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profil" EntityType="Self.Profil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
